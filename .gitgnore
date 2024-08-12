@@ -1,5 +1,5 @@
 # Text backup files
 *.bak
-
 # Database
 *.sqlite3
+app_orcamento/app_orcamento/settings
