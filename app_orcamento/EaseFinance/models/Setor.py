@@ -1,6 +1,4 @@
-from django.db import models
-
-from orcamento_app.app_orcamento.EaseFinance.modelos import Empresa
+from EaseFinance.models import*
 
 
 class Setor(models.Model):

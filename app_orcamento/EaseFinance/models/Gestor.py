@@ -1,4 +1,4 @@
-from modelos import*
+from EaseFinance.models import*
 
 
 class Gestor(Funcionario):

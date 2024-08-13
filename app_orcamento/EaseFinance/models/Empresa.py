@@ -1,5 +1,6 @@
 from audioop import reverse
-from modelos import *
+from EaseFinance.models import*
+
 
 
 class Empresa(models.Model):

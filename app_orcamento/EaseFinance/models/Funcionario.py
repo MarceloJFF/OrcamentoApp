@@ -1,12 +1,11 @@
-from typing import Any
-from modelos import*
+from EaseFinance.models import*
 
 
 class Funcionario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    nome = models.models.CharField(max_length=50,help_text = "Digite o seu nome", null=False)  
-    sobrenome = models.models.CharField(max_length=50,help_text = "Digite o seu nome", null=False)
-    setor = models.ForeignKey(Setor,on_delete=models.SET_NULL)
+    nome = models.CharField(max_length=50,help_text = "Digite o seu nome", null=False)  
+    sobrenome = models.CharField(max_length=50,help_text = "Digite o seu nome", null=False)
+    setor = models.ForeignKey(Setor,on_delete=models.CASCADE)
     cpf = models.CharField(max_length=11, unique=True, null=False)
     data_nascimento = models.DateField(null = True,default=None)
     salario = models.DecimalField(max_digits=10,decimal_places=2)

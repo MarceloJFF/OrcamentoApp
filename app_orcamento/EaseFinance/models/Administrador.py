@@ -1,6 +1,4 @@
-from modelos import*
-
-
+from EaseFinance.models import*
 
 class Administrador(Funcionario):
     data_promocao = models.DateField()  # Data da promoção para administrador
