@@ -1,4 +1,4 @@
-from models import*
+from modelos import*
 
 class OrcamentoSetorAno(models.Model):
     orcamento_ano = models.ForeignKey(OrcamentoAnual, null=False, on_delete= models.CASCADE)

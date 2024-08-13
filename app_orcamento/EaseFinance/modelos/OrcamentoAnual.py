@@ -1,4 +1,4 @@
-from models import*
+from modelos import*
 
 class OrcamentoAnual(models.Model):
     empresa = models.OneToOneField(Empresa, help_text="Escolha a empresa vinculada",null = False, on_delete=models.CASCADE)

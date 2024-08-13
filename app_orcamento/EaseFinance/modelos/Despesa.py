@@ -1,4 +1,4 @@
-from models import*
+from modelos import*
 
 class Despesa(models.Model):
     nome = models.CharField(max_length=25,null=False, help_text='Digite o nome da despesa', unique=True,max_lenngth = 20)

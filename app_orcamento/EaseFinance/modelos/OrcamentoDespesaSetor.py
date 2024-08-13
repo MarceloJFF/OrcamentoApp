@@ -1,4 +1,4 @@
-from models import*
+from modelos import*
 
 class OrcamentoDespesaSetor(models.Model): 
     setor = models.models.ForeignKey(Setor, on_delete=models.CASCADE, null = False, related_name='setor')

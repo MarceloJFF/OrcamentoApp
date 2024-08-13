@@ -1,5 +1,5 @@
 from typing import Any
-from models import*
+from modelos import*
 
 
 class Funcionario(models.Model):
@@ -17,15 +17,15 @@ class Funcionario(models.Model):
         return f'{self.nome}  {self.sobrenome}'
     
     @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
+    def create_user_Funcionario(sender, instance, created, **kwargs):
         try:
             if created:
-                Perfil.objects.create(user=instance)
+                Funcionario.objects.create(user=instance)
         except:
             pass
     @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
+    def save_user_Funcionario(sender, instance, **kwargs):
         try:
-            instance.profile.save()
+            instance.Funcionario.save()
         except:
             pass

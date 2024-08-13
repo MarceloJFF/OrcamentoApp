@@ -1,5 +1,5 @@
 
-from models import*
+from modelos import*
 
 class Solicitacao(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=False)
