@@ -1,6 +1,5 @@
 from django.http import HttpResponse
-
-
+from django.shortcuts import render
 class TesteView:
     def renderizar(request):
-        return HttpResponse('<h1>Ola mundo!<h1>')
+        return render(request,template_name = 'dashboard.html',status = 200)
