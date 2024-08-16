@@ -10,7 +10,6 @@ TIPO_SOLICITACAO = (
     (3, 'Transferencia de Valores de  Orcamento entre Setores')
 )
 
-from .Empresa import Empresa
 from .Despesa import Despesa
 from.Setor import Setor
 from.OrcamentoAnual import OrcamentoAnual
