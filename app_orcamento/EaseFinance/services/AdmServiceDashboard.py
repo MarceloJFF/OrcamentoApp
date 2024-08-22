@@ -1,5 +1,5 @@
 from datetime import datetime
-from EaseFinance.repository.OrcamentoAnualRepositorio import OrcamentoAnualRepositorio
+from EaseFinance.repository.OrcamentoRepository import OrcamentoRepository
 
 class AdmServiceDashboard():
     
@@ -8,6 +8,6 @@ class AdmServiceDashboard():
     
     def obter_orcamento_ano_atual(self):
         ano_atual = datetime.now().year
-        orcamento_atual = OrcamentoAnualRepositorio()
+        orcamento_atual = OrcamentoRepository()
         orcamento_atual = orcamento_atual.obter_orcamento_por_ano(ano_atual)
         return orcamento_atual
