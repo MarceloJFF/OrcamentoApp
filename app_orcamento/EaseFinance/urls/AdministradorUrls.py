@@ -4,6 +4,6 @@ from django.urls import path
 from EaseFinance.views.AdministradorView import AdministradorView
 
 urlpatterns = [
-    path("adm", AdministradorView.index, name='dash'),
-    path("adm/setores", AdministradorView.setores, name='setores')
+    path("adm", AdministradorView.index, name='adm-dash'),
+    path("adm/setores", AdministradorView.setores, name='adm-setores')
 ]

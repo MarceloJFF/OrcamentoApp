@@ -24,5 +24,6 @@ from django.conf.urls import  include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('EaseFinance.urls.AdministradorUrls'))     
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('adm',include('EaseFinance.urls.AdministradorUrls')),
+    path('usuario/',include('EaseFinance.urls.UsuarioUrls'))     
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realocação de Orçamento</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/light-bootstrap-dashboard.css" rel="stylesheet">
+    <style>
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .nav-link i {
+            margin-right: 15px;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+        .nav-link p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            line-height: 1.2;
+        }
+        .nav-item.active .nav-link {
+            background-color: #f4f4f4;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        .btn-submit {
+            margin-top: 20px; /* Ajuste o valor conforme necessário */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../static/img/sidebar-5.jpg">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <img src="../static/img/logo.png" alt="Logo">
+                </div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'usuario-realocacao'%}>
+                            <i class="fa fa-exchange"></i>
+                            <p>Realocação de Orçamento</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'usuario-setores' %}>
+                            <i class="fa fa-building"></i> <!-- Alterado para o mesmo ícone dos outros botões -->
+                            <p>Cadastrar Setores</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'usuario-solicitacao-abono' %}>
+                            <i class="fa fa-money"></i>
+                            <p>Abono de Despesa</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'usuario-sobre' %}>
+                            <i class="fa fa-info"></i>
+                            <p>Sobre a empresa</p>
+                        </a>
+                    </li>
+
+                    <!-- Outros itens do menu -->
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href={% url 'usuario-dash' %}> <i class="fa fa-tachometer"></i> Dashboard</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar"></span>
+                        <span class="navbar-toggler-bar"></span>
+                        <span class="navbar-toggler-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href={% url 'usuario-perfil' %}>
+                                    <i class="fa fa-user"></i> Perfil
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <i class="fa fa-sign-out"></i> Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content">
+                <div class="container-fluid">
+                    <!-- Área onde o conteúdo das funcionalidades será exibido -->
+                    <div id="content-area">
+                        <h4>Bem-vindo ao Sistema de Organização Orçamentária: Ease Finance</h4>
+                        
+                        <!-- Exemplo: Formulário de Realocação de Orçamento -->
+                        <div id="realocacao">
+                            <h4>Solicitação de Realocação de Orçamento</h4>
+                            <form id="form-realocacao">
+                                <div class="form-group">
+                                    <label for="num-requisicao">Número da Requisição</label>
+                                    <input type="text" class="form-control" id="num-requisicao" disabled value="12345"> <!-- ID gerado automaticamente -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-origem">Despesa de Origem</label>
+                                    <input type="number" class="form-control" id="despesa-origem" placeholder="Informe o valor da despesa de origem" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-destino">Despesa de Destino</label>
+                                    <input type="number" class="form-control" id="despesa-destino" placeholder="Informe o valor da despesa de destino" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="observacao">Observação</label>
+                                    <textarea class="form-control" id="observacao" rows="4" placeholder="Informe o motivo da realocação" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit">Submeter Requisição</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                        <ul>
+                            <li><a href={% url 'usuario-dash' %}>Home</a></li>
+                            <li><a href={% url 'usuario-sobre' %}>Empresa</a></li>
+                        </ul>
+                        <p class="copyright text-center">
+                            © <script>document.write(new Date().getFullYear())</script> Ease Finance
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/chartist.min.js"></script>
+    <script src="../static/js/light-bootstrap-dashboard.js"></script>
+    <script>
+        document.getElementById("form-realocacao").addEventListener("submit", function(event) {
+            // Validação de campos obrigatórios e lógica de validação de valores
+            const despesaOrigem = parseFloat(document.getElementById("despesa-origem").value);
+            const despesaDestino = parseFloat(document.getElementById("despesa-destino").value);
+            const observacao = document.getElementById("observacao").value.trim();
+
+            if (isNaN(despesaOrigem) || isNaN(despesaDestino) || !observacao) {
+                alert("Todos os campos são obrigatórios.");
+                event.preventDefault();
+                return;
+            }
+
+            if (despesaOrigem <= 0) {
+                alert("Não é possível realocar valores de uma despesa com valor orçado igual a zero.");
+                event.preventDefault();
+                return;
+            }
+
+            if (despesaDestino > despesaOrigem) {
+                alert("O valor da despesa de destino não pode ser maior que o valor da despesa de origem.");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

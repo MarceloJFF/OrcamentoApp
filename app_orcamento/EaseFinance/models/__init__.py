@@ -6,8 +6,9 @@ from django.dispatch import receiver
 
 TIPO_SOLICITACAO = (
     (1, 'Realocao do Orcamento Interno das Despesas no Setor'),
-    (2, 'Compras ou Despesas em Geral'),
-    (3, 'Transferencia de Valores de  Orcamento entre Setores')
+    (2, 'Compras de Produtos ou equipamentos'),
+    (3, 'Despesas em Geral'),
+    (4, 'Transferencia de Valores de  Orcamento entre Setores')
 )
 
 from .Despesa import Despesa
