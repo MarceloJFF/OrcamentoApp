@@ -1,5 +1,4 @@
-from EaseFinance.models import*
-
+from EaseFinance.models import *
 
 class Funcionario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)

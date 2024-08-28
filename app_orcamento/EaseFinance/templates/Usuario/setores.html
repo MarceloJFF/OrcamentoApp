@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Setores</title>
+    <title>Setores</title>
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -19,26 +19,32 @@
             font-size: 14px;
             text-transform: uppercase;
         }
+
         .nav-link i {
             margin-right: 15px;
             font-size: 18px;
             line-height: 1.2;
         }
+
         .nav-link p {
             margin: 0;
             display: flex;
             align-items: center;
             line-height: 1.2;
         }
+
         .nav-item.active .nav-link {
             background-color: #f4f4f4;
         }
+
         .logo img {
             max-width: 200px;
             height: auto;
         }
+
         .btn-submit {
-            margin-top: 20px; /* Ajuste o valor conforme necessário */
+            margin-top: 20px;
+            /* Ajuste o valor conforme necessário */
         }
     </style>
 </head>
@@ -52,15 +58,15 @@
                 </div>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href={% url 'usuario-realocacao'%}>
+                        <a class="nav-link" href={% url 'usuario-realocacao' %}>
                             <i class="fa fa-exchange"></i>
                             <p>Realocação de Orçamento</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href= {% url 'usuario-setores'%}>
+                        <a class="nav-link" href={% url 'usuario-setores' %}>
                             <i class="fa fa-building"></i>
-                            <p>Cadastrar Setores</p>
+                            <p>Setores</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -83,8 +89,11 @@
         <div class="main-panel">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href={% url 'usuario-dash' %}> <i class="fa fa-tachometer"></i> Dashboard</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand" href={% url 'usuario-dash' %}> <i class="fa fa-tachometer"></i>
+                        Dashboard</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar"></span>
                         <span class="navbar-toggler-bar"></span>
                         <span class="navbar-toggler-bar"></span>
@@ -111,18 +120,20 @@
                     <!-- Área onde o conteúdo das funcionalidades será exibido -->
                     <div id="content-area">
                         <h4>Bem-vindo ao Sistema de Organização Orçamentária: Ease Finance</h4>
-                        
+
                         <!-- Formulário de Cadastro de Setores -->
                         <div id="cadastrar-setores">
                             <h4>Cadastro de Setores</h4>
                             <form id="form-cadastro-setores">
                                 <div class="form-group">
                                     <label for="nome-setor">Nome do Setor</label>
-                                    <input type="text" class="form-control" id="nome-setor" placeholder="Informe o nome do setor" required>
+                                    <input type="text" class="form-control" id="nome-setor"
+                                        placeholder="Informe o nome do setor" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="responsavel">Nome do Funcionário Responsável</label>
-                                    <input type="text" class="form-control" id="responsavel" placeholder="Informe o nome do funcionário responsável" required>
+                                    <input type="text" class="form-control" id="responsavel"
+                                        placeholder="Informe o nome do funcionário responsável" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="despesas">Despesas</label>
@@ -132,24 +143,53 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" id="descricao" rows="4" placeholder="Informe uma descrição para o setor" required></textarea>
+                                    <textarea class="form-control" id="descricao" rows="4"
+                                        placeholder="Informe uma descrição para o setor" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-submit">Submeter Cadastro</button>
                             </form>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <h4>Setores</h4>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                                <th>Responsável</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for setor in setores %}
+                            <tr>
+                                <td>{{ setor.setor.nome }}</td>
+                                <td>{{ setor.setor.telefone }}</td>
+                                <td>{{ setor.gestor }}</td>
+
+                            </tr>
+                            {% endfor %}
+
+                            <!-- As solicitações serão carregadas dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
             <footer class="footer">
                 <div class="container-fluid">
                     <nav>
                         <ul>
-                            <li><a href={% url 'usuario-dash'%}>Home</a></li>
+                            <li><a href={% url 'usuario-dash' %}>Home</a></li>
                             <li><a href={% url 'usuario-sobre' %}>Empresa</a></li>
                         </ul>
                         <p class="copyright text-center">
-                            © <script>document.write(new Date().getFullYear())</script> Ease Finance
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> Ease Finance
                         </p>
                     </nav>
                 </div>
@@ -162,7 +202,7 @@
     <script src="../static/js/chartist.min.js"></script>
     <script src="../static/js/light-bootstrap-dashboard.js"></script>
     <script>
-        document.getElementById("form-cadastro-setores").addEventListener("submit", function(event) {
+        document.getElementById("form-cadastro-setores").addEventListener("submit", function (event) {
             // Validação de campos obrigatórios e lógica de validação de valores
             const nomeSetor = document.getElementById("nome-setor").value.trim();
             const responsavel = document.getElementById("responsavel").value.trim();
